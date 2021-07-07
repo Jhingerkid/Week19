@@ -1,0 +1,28 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',    filename='css/template.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a href="{{ url_for('home') }}">Home</a>
+      </div>
+      <div class="container">
+        <a href="{{ url_for('dogs') }}">Dogs</a>
+      </div>
+      <div class="container">
+        <a href="{{ url_for('doctors') }}">Doctors</a>
+      </div>
+      <div class="container">
+        <a href="{{ url_for('maladies') }}">Maladies</a>
+      </div>
+    </header>
+    {% block content %} {% endblock %}
+  </body>
+</html>
