@@ -4,8 +4,25 @@
     <title>Song Home</title>
   </head>
   <body>
-    {% extends "template.html" %} {% block content %}
-    <p>maladies</p>
+    {% extends "template.html" %} {% block content %} {% for malady in malInfo%}
+    <div class="malinfo">
+      <span>{{malady['maladyId']}}</span>
+      <span>{{malady['maladyName']}}</span>
+      <form action="/Maladies" method="POST">
+        <input
+          type="hidden"
+          value="{{malady['maladyId']}}"
+          id="remmal"
+          name="remmal"
+        />
+        <input value="Remove Malady" type="submit" />
+      </form>
+    </div>
+    {% endfor %}
+    <form action="/Maladies" method="POST">
+      <input type="text" id="addmal" name="addmal" />
+      <input value="Add Malady" type="submit" />
+    </form>
     {% endblock %}
   </body>
 </html>

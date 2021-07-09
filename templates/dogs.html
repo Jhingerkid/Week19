@@ -5,7 +5,65 @@
   </head>
   <body>
     {% extends "template.html" %} {% block content %}
-    <p>Dogs</p>
-    {% endblock %}
+    <div class="search-return">
+      <form action="/Dogs" method="POST">
+        <input
+          type="text"
+          value=""
+          id="searchdog"
+          name="searchdog"
+          placeholder="Search for a dog, doctor, or attribute"
+        />
+        <input value="Search" type="submit" />
+      </form>
+      <form action="/Dogs" method="POST">
+        <input type="hidden" value="" id="searchdog" name="searchdog" />
+        <input value="Return" type="submit" />
+      </form>
+    </div>
+    {% for dog in dogInfo%}
+    <div class="doginfo">
+      <span>{{dog['animalId']}}</span>
+      <span>{{dog['animalName']}}</span>
+      <span>{{dog['doctorName']}}</span>
+      <span>{{dog['maladyName']}}</span>
+
+      <form action="/Dogs" method="POST">
+        <input
+          type="hidden"
+          value="{{dog['animalId']}}"
+          id="remdog"
+          name="remdog"
+        />
+        <input value="Remove" type="submit" />
+      </form>
+      <form action="/Update" method="POST">
+        <input
+          type="hidden"
+          value="{{dog['maladyId'],dog['doctorId'],dog['animalName'],dog['animalId']}}"
+          id="updog"
+          name="updog"
+        />
+        <input value="Update" type="submit" />
+      </form>
+    </div>
+    {% endfor %}
+    <form action="/Dogs" method="POST">
+      <input type="text" id="adddog" name="adddog" placeholder="Dog Name" />
+      <input
+        type="text"
+        id="adddogdoc"
+        name="adddogdoc"
+        placeholder="Doctor ID"
+      />
+      <input
+        type="text"
+        id="adddogmal"
+        name="adddogmal"
+        placeholder="Malady ID"
+      />
+      <input value="Add Dog" type="submit" />
+    </form>
+    {{warning}} {% endblock %}
   </body>
 </html>

@@ -4,8 +4,34 @@
     <title>Song Home</title>
   </head>
   <body>
-    {% extends "template.html" %} {% block content %}
-    <p>{{doctor}}</p>
+    {% extends "template.html" %} {% block content %} {% for doctor in docInfo%}
+    <div class="docinfo">
+      <span>{{doctor['doctorId']}}</span>
+      <span>{{doctor['doctorName']}}</span>
+      <form action="/Doctors" method="POST">
+        <input
+          type="hidden"
+          value="{{doctor['doctorId']}}"
+          id="remdoc"
+          name="remdoc"
+        />
+        <input value="Remove" type="submit" />
+      </form>
+      <form action="/UpdateDoc" method="POST">
+        <input
+          type="hidden"
+          value="{{doctor['doctorName'],doctor['doctorId']}}"
+          id="updoctor"
+          name="updoctor"
+        />
+        <input value="Update" type="submit" />
+      </form>
+    </div>
+    {% endfor %}
+    <form action="/Doctors" method="POST">
+      <input type="text" id="adddoc" name="adddoc" />
+      <input value="Add Doctor" type="submit" />
+    </form>
     {% endblock %}
   </body>
 </html>

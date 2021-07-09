@@ -1,0 +1,26 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Song Home</title>
+  </head>
+  <body>
+    {% extends "template.html" %} {% block content %}
+    <form class="update-doctor" action="/Doctors" method="POST">
+      <label>Doctor Name</label>
+      <input
+        type="text"
+        value="{{updateInfo[0]}}"
+        id="updatedoctor"
+        name="updatedoctor0"
+      />
+      <input
+        type="hidden"
+        value="{{updateInfo[1]}}"
+        id="updatedoctor"
+        name="updatedoctor1"
+      />
+      <input value="Update" type="submit" />
+    </form>
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Song Home</title>
+  </head>
+  <body>
+    {% extends "template.html" %} {% block content %}
+    <form class="update-dog" action="/Dogs" method="POST">
+      <label>MaladyId</label>
+      <input
+        type="text"
+        value="{{updateInfo[0]}}"
+        id="updatedog"
+        name="updatedog0"
+      />
+      <label>DoctorId</label>
+      <input
+        type="text"
+        value="{{updateInfo[1]}}"
+        id="updatedog"
+        name="updatedog1"
+      />
+      <label>Dog Name</label>
+      <input
+        type="text"
+        value="{{updateInfo[2]}}"
+        id="updatedog"
+        name="updatedog2"
+      />
+      <input
+        type="hidden"
+        value="{{updateInfo[3]}}"
+        id="updatedog"
+        name="updatedog3"
+      />
+      <input value="Update" type="submit" />
+    </form>
+    {% endblock %}
+  </body>
+</html>
