@@ -1,3 +1,8 @@
+# To use:
+# in the terminal type "virtual/Scripts/activate"
+# then use py main.py
+# I'm sorry that I forgot that <ul> and <li> are things
+
 from flask import Flask, render_template, request
 import pymysql
 
@@ -79,7 +84,6 @@ def dogs():
             userSearch = request.form['searchdog']
             searchQuery = dogListQuery + ' WHERE animalName LIKE "%' + userSearch + '%" OR maladyName LIKE "%' + userSearch + '%" OR doctorName LIKE "%' + userSearch + '%"'
             dog = dbGather(searchQuery)
-            print(searchQuery)
             return render_template("dogs.html",
             dogInfo=dog
             )

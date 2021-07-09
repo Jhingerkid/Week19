@@ -29,6 +29,16 @@ header {
   justify-content: space-between;
 }
 
+.doginfocolumns {
+  display: flex;
+  flex-direction: row;
+  width: 23%;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  transform: translate(-38%);
+  text-decoration: underline;
+}
+
 .docinfo {
   margin-top: 20px;
   display: flex;
