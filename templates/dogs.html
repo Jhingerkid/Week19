@@ -18,42 +18,49 @@
       </form>
       <form action="/Dogs" method="POST">
         <input type="hidden" value="" id="searchdog" name="searchdog" />
-        <input value="Return" type="submit" />
+        <input value="Clear Search Results" type="submit" />
       </form>
     </div>
-    <div class="doginfocolumns">
-      <span>Dog Id</span>
-      <span>Dog Name</span>
-      <span>Doctor Name</span>
-      <span>Malady</span>
-    </div>
-    {% for dog in dogInfo%}
-    <div class="doginfo">
-      <span>{{dog['animalId']}}</span>
-      <span>{{dog['animalName']}}</span>
-      <span>{{dog['doctorName']}}</span>
-      <span>{{dog['maladyName']}}</span>
-
-      <form action="/Dogs" method="POST">
-        <input
-          type="hidden"
-          value="{{dog['animalId']}}"
-          id="remdog"
-          name="remdog"
-        />
-        <input value="Remove" type="submit" />
-      </form>
-      <form action="/Update" method="POST">
-        <input
-          type="hidden"
-          value="{{dog['maladyId'],dog['doctorId'],dog['animalName'],dog['animalId']}}"
-          id="updog"
-          name="updog"
-        />
-        <input value="Update" type="submit" />
-      </form>
-    </div>
-    {% endfor %}
+    <table class="dogtable">
+      <tr>
+        <th>Dog ID</th>
+        <th>Dog Name</th>
+        <th>Doctor Name</th>
+        <th>Malady</th>
+        <th>Remove Dog</th>
+        <th>Update Dog Info</th>
+      </tr>
+      {% for dog in dogInfo%}
+      <tr>
+        <td>{{dog['animalId']}}</td>
+        <td>{{dog['animalName']}}</td>
+        <td>{{dog['doctorName']}}</td>
+        <td>{{dog['maladyName']}}</td>
+        <td>
+          <form action="/Dogs" method="POST">
+            <input
+              type="hidden"
+              value="{{dog['animalId']}}"
+              id="remdog"
+              name="remdog"
+            />
+            <input value="Remove" type="submit" />
+          </form>
+        </td>
+        <td>
+          <form action="/Update" method="POST">
+            <input
+              type="hidden"
+              value="{{dog['maladyId'],dog['doctorId'],dog['animalName'],dog['animalId']}}"
+              id="updog"
+              name="updog"
+            />
+            <input value="Update" type="submit" />
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
     <form action="/Dogs" method="POST">
       <input type="text" id="adddog" name="adddog" placeholder="Dog Name" />
       <input

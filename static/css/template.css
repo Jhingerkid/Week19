@@ -22,6 +22,10 @@ header {
   width: 50%;
 }
 
+td {
+  text-align: center;
+}
+
 .doginfo {
   display: flex;
   flex-direction: row;
@@ -37,6 +41,12 @@ header {
   margin-bottom: 20px;
   transform: translate(-38%);
   text-decoration: underline;
+}
+
+.dogtable,
+.doctable,
+.maltable {
+  width: 60%;
 }
 
 .docinfo {

@@ -1,7 +1,7 @@
 # To use:
 # in the terminal type "virtual/Scripts/activate"
 # then use py main.py
-# I'm sorry that I forgot that <ul> and <li> are things
+# PEP8 standards have been maliciously violated, don't tell Alfred
 
 from flask import Flask, render_template, request
 import pymysql

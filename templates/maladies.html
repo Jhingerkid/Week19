@@ -4,21 +4,31 @@
     <title>Song Home</title>
   </head>
   <body>
-    {% extends "template.html" %} {% block content %} {% for malady in malInfo%}
-    <div class="malinfo">
-      <span>{{malady['maladyId']}}</span>
-      <span>{{malady['maladyName']}}</span>
-      <form action="/Maladies" method="POST">
-        <input
-          type="hidden"
-          value="{{malady['maladyId']}}"
-          id="remmal"
-          name="remmal"
-        />
-        <input value="Remove Malady" type="submit" />
-      </form>
-    </div>
-    {% endfor %}
+    {% extends "template.html" %} {% block content %}
+    <table class="maltable">
+      <tr>
+        <th>Malady ID</th>
+        <th>Malady Name</th>
+        <th>Remove Malady</th>
+      </tr>
+      {% for malady in malInfo%}
+      <tr>
+        <td>{{malady['maladyId']}}</td>
+        <td>{{malady['maladyName']}}</td>
+        <td>
+          <form action="/Maladies" method="POST">
+            <input
+              type="hidden"
+              value="{{malady['maladyId']}}"
+              id="remmal"
+              name="remmal"
+            />
+            <input value="Remove Malady" type="submit" />
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
     <form action="/Maladies" method="POST">
       <input type="text" id="addmal" name="addmal" />
       <input value="Add Malady" type="submit" />
